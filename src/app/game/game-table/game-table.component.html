@@ -5,6 +5,9 @@
     <!-- Example: show the current trick in the middle -->
     <div class="flex gap-4 justify-center">
         <!-- if you want to show each player's played card -->
+        @for(card of store.currentTrick(); track $index){
+        <app-card [card]="card"></app-card>
+        }
     </div>
 
     <!-- For debugging, or a minimal scoreboard -->
