@@ -7,12 +7,14 @@ type GameState = {
     deck: Card[];
     players: Player[];
     currentPlayerId: number;
+    currentTrick: Card[];
 }
 
 const initialState: GameState = {
     deck: [],
     players: [],
-    currentPlayerId: 0
+    currentPlayerId: 0,
+    currentTrick: []
 }
 
 export const GameStore = signalStore(
@@ -25,7 +27,8 @@ export const GameStore = signalStore(
             patchState(store, {
                 deck: createDeck(),
                 players: [],
-                currentPlayerId: 0
+                currentPlayerId: 0,
+                currentTrick: []
             })
         },
         shuffleDeck() {
@@ -63,15 +66,26 @@ export const GameStore = signalStore(
                 return p;
             });
 
-            // TODO: Add logic for tracking the trick that’s in progress
+            // Add played card to currentTrick
+            const currentTrick = [...store.currentTrick(), card];
 
+            // Check if the trick is complete
+            if (currentTrick.length === store.players().length) {
+                this.completeTrick();
+            }
 
             patchState(store, {
                 players,
+                currentTrick,
             });
         },
         completeTrick() {
+            // Handle scoring and resetting currentTrick
+            // Add your scoring logic here
 
+            patchState(store, {
+                currentTrick: []
+            });
         },
         scoreRound() {
 
