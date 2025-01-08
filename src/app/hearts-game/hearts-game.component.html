@@ -1,0 +1,28 @@
+<!-- hearts-game.component.html -->
+<mat-toolbar color="primary" class="mb-4">
+    <span>Hearts</span>
+</mat-toolbar>
+
+<div class="container mx-auto">
+    <button mat-raised-button (click)="initialize()">
+        New Game
+    </button>
+    <button mat-raised-button (click)="shuffleDeck()">
+        Shuffle
+    </button>
+    <button mat-raised-button (click)="dealCards()">
+        Deal
+    </button>
+
+    <app-game-table></app-game-table>
+
+    <div class="flex flex-wrap gap-4 mt-4">
+        <!-- Example: Show each player’s hand -->
+        @for(player of store.players(); track player.id){
+        <div class="flex flex-col items-center">
+            <span>{{ player.name }}</span>
+            <app-player-card [playerId]="player.id" [hand]="player.hand"></app-player-card>
+        </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,11 @@
+:host {
+  display: block;
+}
+
+.playable {
+  cursor: pointer;
+}
+
+.not-playable {
+  cursor: not-allowed;
+} 

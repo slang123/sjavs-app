@@ -1,0 +1,14 @@
+<div class="rounded border p-2 w-16 h-24 flex flex-col items-center justify-center 
+         bg-white shadow-md relative" [class.playable]="playable()">
+  <div class="absolute top-1 left-1 text-xs">
+    {{ getRankSymbol(card().rank) }}
+    <span [class]="suitColor()">{{ card().suit }}</span>
+  </div>
+  <div class="text-4xl text-center" [class]="suitColor()">
+    {{ card().suit }}
+  </div>
+  <div class="absolute bottom-1 right-1 text-xs">
+    {{ getRankSymbol(card().rank) }}
+    <span [class]="suitColor()">{{ card().suit }}</span>
+  </div>
+</div>

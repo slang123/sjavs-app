@@ -1,0 +1,8 @@
+<!-- player-hand.component.html -->
+<div class="flex gap-2">
+    @for(card of hand(); track $index){
+    <app-card [card]="card" [playable]="isPlayable" (click)="onCardClick(card)"></app-card>
+    } @empty {
+    <div class="text-center text-gray-400">No cards</div>
+    }
+</div>

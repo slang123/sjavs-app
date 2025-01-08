@@ -1,0 +1,18 @@
+<!-- game-table.component.html -->
+<div class="p-4 bg-green-700 min-h-[200px] flex flex-col items-center">
+    <h2 class="text-white text-xl mb-4">Hearts Game Table</h2>
+
+    <!-- Example: show the current trick in the middle -->
+    <div class="flex gap-4 justify-center">
+        <!-- if you want to show each player's played card -->
+    </div>
+
+    <!-- For debugging, or a minimal scoreboard -->
+    <div class="flex mt-4 gap-2">
+        @for(player of store.players(); track player.id){
+        <div class="text-white">
+            {{ player.name }}: {{ player.points }} pts
+        </div>
+        }
+    </div>
+</div>
